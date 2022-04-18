@@ -1,3 +1,9 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
 :root {
     --seal-brown: #582f0eff;
     --russet: #7f4f24ff;
@@ -25,9 +31,25 @@ body {
 .card {
     background-color: var(--laurel-green-2);
     color: var(--kombu-green);
+    width: 30%;
+    height: auto;
+    margin: 0 auto;
+    display: grid;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
 }
 
 .card-title {
     background-color: var(--dark-olive-green);
     color: var(--kombu-green);
+    width: 100%;
+}
+
+.card-text {
+    margin: 0%;
+}
+
+.container {
+
 }

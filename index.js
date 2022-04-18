@@ -103,7 +103,8 @@ function newEngineer (){
     ]).then(userresponse => {
         const teamEngineer = new Engineer(userresponse.name,userresponse.id,userresponse.email,userresponse.github);
         teamHTMLCodeEngineer += `
-        <div class="card" style="width: 18rem;">
+        <div class="col-4">
+        <div class="card" style="width: 25rem;">
         <h2 class="card-title">${teamEngineer.name}</h2>
   <div class="card-body">
     <p class="card-text"><h5>Team Engineer</h5></p>
@@ -111,6 +112,7 @@ function newEngineer (){
     <p class="card-text"><a href="https://github.com/${teamEngineer.github}">GitHub</a></p>
     <p class="card-text"><a href="mailto:${teamEngineer.email}">Email Here</a></p>
   </div>
+</div>
 </div>
         `
         createTeam()
@@ -146,7 +148,8 @@ function newIntern (){
     ]).then(userresponse => {
         const teamIntern = new Intern(userresponse.name,userresponse.id,userresponse.email,userresponse.school);
         teamHTMLCodeIntern += `
-        <div class="card" style="width: 18rem;">
+        <div class="col-4">
+        <div class="card" style="width: 25rem;">
         <h2 class="card-title">${teamIntern.name}</h2>
   <div class="card-body">
     <p class="card-text"><h5>Team Intern</h5></p>
@@ -154,6 +157,7 @@ function newIntern (){
     <p class="card-text">School: ${teamIntern.school}</p>
     <p class="card-text"><a href="mailto: ${teamIntern.email}">Email Here</a></p>
   </div>
+</div>
 </div>
         `
         createTeam()
@@ -176,8 +180,16 @@ let HTML = `<!doctype html>
     <h1>Employee List</h1>
 </header>
     ${teamHTMLCodeManager}
+    <br>
+    <div class="container">
+  <div class="row">
   ${teamHTMLCodeEngineer}
+  </div></div>
+<br>
+  <div class="container">
+  <div class="row">
   ${teamHTMLCodeIntern}
+  </div></div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
   
