@@ -1,0 +1,33 @@
+:root {
+    --seal-brown: #582f0eff;
+    --russet: #7f4f24ff;
+    --coyote-brown: #936639ff;
+    --camel: #a68a64ff;
+    --khaki-web: #b6ad90ff;
+    --laurel-green: #c2c5aaff;
+    --laurel-green-2: #a4ac86ff;
+    --dark-olive-green: #656d4aff;
+    --rifle-green: #414833ff;
+    --kombu-green: #333d29ff;
+}
+
+body {
+    background-color: var(--laurel-green);
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.h1 {
+    color: var(--russet);
+    text-align: center;
+}
+
+.card {
+    background-color: var(--laurel-green-2);
+    color: var(--kombu-green);
+}
+
+.card-title {
+    background-color: var(--dark-olive-green);
+    color: var(--kombu-green);
+}

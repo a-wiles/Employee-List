@@ -3,7 +3,9 @@ const Engineer = require("./library/Engineer");
 const Intern = require("./library/Intern");
 const fs = require("fs")
 const Inquirer = require("inquirer");
-let teamHTMLCode = ""
+let teamHTMLCodeManager = "";
+let teamHTMLCodeEngineer = "";
+let teamHTMLCodeIntern = "";
 
 function addManager(){
     console.log("Welcome to Team creation App")
@@ -34,14 +36,14 @@ function addManager(){
 
     ]).then(userresponse => {
         const teamManager = new Manager(userresponse.name,userresponse.id,userresponse.email,userresponse.officenumber);
-        teamHTMLCode += `
+        teamHTMLCodeManager += `
         <div class="card" style="width: 18rem;">
-        <h5 class="card-title">${teamManager.name}</h5>
+        <h2 class="card-title">${teamManager.name}</h2>
   <div class="card-body">
-    <p class="card-text">Team Manager</p>
-    <p class="card-text">Id:${teamManager.id}</p>
-    <p class="card-text">Officenumber:${teamManager.officenumber}</p>
-    <p class="card-text">Email:${teamManager.email}</p>
+    <p class="card-text"><h5>Team Manager</h5></p>
+    <p class="card-text">Id: ${teamManager.id}</p>
+    <p class="card-text">Officenumber: ${teamManager.officenumber}</p>
+    <p class="card-text"><a href="mailto:${teamManager.email}">Email Here</a></p>
   </div>
 </div>
         `
@@ -100,14 +102,14 @@ function newEngineer (){
 
     ]).then(userresponse => {
         const teamEngineer = new Engineer(userresponse.name,userresponse.id,userresponse.email,userresponse.github);
-        teamHTMLCode += `
+        teamHTMLCodeEngineer += `
         <div class="card" style="width: 18rem;">
-        <h5 class="card-title">${teamEngineer.name}</h5>
+        <h2 class="card-title">${teamEngineer.name}</h2>
   <div class="card-body">
-    <p class="card-text">Team Engineer</p>
-    <p class="card-text">Id:${teamEngineer.id}</p>
-    <p class="card-text">Officenumber:${teamEngineer.github}</p>
-    <p class="card-text">Email:${teamEngineer.email}</p>
+    <p class="card-text"><h5>Team Engineer</h5></p>
+    <p class="card-text">Id: ${teamEngineer.id}</p>
+    <p class="card-text"><a href="https://github.com/${teamEngineer.github}">GitHub</a></p>
+    <p class="card-text"><a href="mailto:${teamEngineer.email}">Email Here</a></p>
   </div>
 </div>
         `
@@ -143,14 +145,14 @@ function newIntern (){
 
     ]).then(userresponse => {
         const teamIntern = new Intern(userresponse.name,userresponse.id,userresponse.email,userresponse.school);
-        teamHTMLCode += `
+        teamHTMLCodeIntern += `
         <div class="card" style="width: 18rem;">
-        <h5 class="card-title">${teamIntern.name}</h5>
+        <h2 class="card-title">${teamIntern.name}</h2>
   <div class="card-body">
-    <p class="card-text">Team Intern</p>
-    <p class="card-text">Id:${teamIntern.id}</p>
-    <p class="card-text">Officenumber:${teamIntern.school}</p>
-    <p class="card-text">Email:${teamIntern.email}</p>
+    <p class="card-text"><h5>Team Intern</h5></p>
+    <p class="card-text">Id: ${teamIntern.id}</p>
+    <p class="card-text">School: ${teamIntern.school}</p>
+    <p class="card-text"><a href="mailto: ${teamIntern.email}">Email Here</a></p>
   </div>
 </div>
         `
@@ -165,14 +167,17 @@ let HTML = `<!doctype html>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./CSS/style.css">
 
     <title>Employee Roster</title>
   </head>
   <body>
    <header>
-    <h1>Hello, world!</h1>
+    <h1>Employee List</h1>
 </header>
-  ${teamHTMLCode}
+    ${teamHTMLCodeManager}
+  ${teamHTMLCodeEngineer}
+  ${teamHTMLCodeIntern}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
   
